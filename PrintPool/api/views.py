@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def main(request):
-    return HttpResponse('<h>Header</h>')
+    return HttpResponse('<h>Backend Header</h>')

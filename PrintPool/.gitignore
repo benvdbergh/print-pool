@@ -1,0 +1,34 @@
+# General
+.venv
+.env
+frontend/node_modules/
+
+*.pyc
+/backend/db.sqlite3
+.DS_Store
+*/settings/local.py
+/staticfiles/*
+/mediafiles/*
+__pycache__/*
+/.vscode/
+
+# data
+*.dump
+
+# npm
+node_modules/
+npm-debug.log
+
+# Webpack
+/frontend/bundles/*
+/frontend/webpack_bundles/*
+/webpack-stats.json
+webpacked.js*
+
+
+# templated email
+tmp_email/
+
+.direnv
+.envrc
+.tool-versions
