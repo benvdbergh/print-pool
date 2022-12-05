@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import main
+from .views import ToolView
 
 urlpatterns = [
-    path('', main)
-    
+    path('tool', ToolView.as_view())
 ]

@@ -19,3 +19,6 @@ body {
     height: 100%;
     display: flex;
 }
+.map-container {
+    height: 400px;
+}
