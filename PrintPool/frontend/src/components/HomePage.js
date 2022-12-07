@@ -22,17 +22,17 @@ export default class HomePage extends Component{
     }
 
     render(){
-        return <MainMap/>
-        // <Container disableGutters='True' maxWidth='sx'>
-        //         {/* <AppBar/> */}
-                
-        //         {/* <BRouter>
-        //             <Switch>
-        //                 <Route exact path='/'><p>This is  the HomePage</p></Route>
-        //                 <Route path='/profile' component={Profile}></Route>
-        //             </Switch>
-        //         </BRouter> */}
-        //     </Container>
+        return <Container disableGutters={true} maxWidth='sx'>
+                <AppBar/>
+                <BRouter>
+                    <Switch>
+                        <Route exact path='/'>
+                            <MainMap/>
+                        </Route>
+                        <Route path='/profile' component={Profile}></Route>
+                    </Switch>
+                </BRouter>
+            </Container>
                 
 
 

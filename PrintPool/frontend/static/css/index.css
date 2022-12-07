@@ -20,5 +20,5 @@ body {
     display: flex;
 }
 .map-container {
-    height: 400px;
+    height: 100%;
 }
