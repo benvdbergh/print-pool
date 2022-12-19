@@ -32,4 +32,4 @@ jobs:
         pip install -r PrintPool/requirements.txt
     - name: Run Tests
       run: |
-        python manage.py test
+        python PrintPool/manage.py test
