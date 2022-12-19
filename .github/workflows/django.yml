@@ -25,6 +25,7 @@ jobs:
       uses: ryan-rozario/pipreqs-action@v2.0.0
       with:
         PROJECT_PATH: ./PrintPool   #default is the root of the repository
+        REQUIREMENT_PATH: ./PrintPool/requirements.txt
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
