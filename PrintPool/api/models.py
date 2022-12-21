@@ -20,5 +20,6 @@ class Tool(models.Model):
     brand = models.CharField(max_length=30)
     model = models.CharField(max_length=30)
     owner = models.CharField(max_length=10)
+    location = models.CharField(max_length=15)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True, auto_now_add=False)

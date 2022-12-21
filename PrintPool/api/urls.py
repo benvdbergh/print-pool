@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import ToolView
+from .views import ToolView, ToolsView
 
 urlpatterns = [
-    path('tool', ToolView.as_view())
+    path('tools', ToolsView.as_view()),
+    path('tool/<int:id>/',ToolView.as_view())
 ]

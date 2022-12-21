@@ -23,8 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv(find_dotenv())
-# SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-
+try:
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+except KeyError:
+    SECRET_KEY = "dummy"
+    
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
