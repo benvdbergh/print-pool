@@ -1,33 +1,46 @@
 import React from 'react';
-import Map from 'react-map-gl';
 // import carLogo from './car-svgrepo-com.svg';
+import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-class MapView extends React.Component {
-  viewState = this.props.viewState;
-  vehicles = this.props.vehicles;
+mapboxgl.accessToken = 'pk.eyJ1IjoiYmVudmRiZXJnaCIsImEiOiJjbGFrNjN0YnEwMjVqM3BrMDg0bXdmYnBtIn0.ucG2ca-NXEuIZKOAVqYf_Q';
 
+
+class MapView extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = this.props.viewState
+    this.workshops = this.props.workshops
+    this.mapContainer = React.createRef();
+  }
   componentDidMount() {
-    this.onMove = (evt) => {
-      this.props.dispatch({ type: 'setViewState', payload: evt.viewState });
-    }
+    const { lng, lat, zoom } = this.state;
+    const map = new mapboxgl.Map({
+      container: this.mapContainer.current,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [lng, lat],
+      zoom: zoom
+    });
+
+    map.on('move', () => {
+      this.setState({
+      lng: map.getCenter().lng.toFixed(4),
+      lat: map.getCenter().lat.toFixed(4),
+      zoom: map.getZoom().toFixed(2)
+      });
+    });
+
+    const marker = new mapboxgl.Marker()
+      .setLngLat([30.5, 50.5])
+      .setPopup(new mapboxgl.Popup().setHTML("<h1>Hello World!</h1>"))
+      .addTo(map);
   }
 
   render() {
     return (
-      <Map
-        {...this.viewState}
-        onMove={this.onMove}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
-      >
-        {/* {this.vehicles.map((vehicle) => (
-          <Marker key={vehicle.id} longitude={vehicle.coordinates[0]} latitude={vehicle.coordinates[1]}>
-            <svg>
-                <use xlinkHref={carLogo} />
-            </svg>
-          </Marker>
-        ))} */}
-      </Map>
+      <div>
+        <div ref={this.mapContainer} className="map-container" />
+      </div>
     );
   }
 }
