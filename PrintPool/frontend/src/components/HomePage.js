@@ -1,59 +1,29 @@
 import React, { Component } from "react";
-import { BrowserRouter as BRouter, Switch, Route} from 'react-router-dom';
-// import Button from "@mui/material/Button";
-// import Grid from "@mui/material/Grid";
-// import Typography from '@mui/material/Typography';
-// import TextField from '@mui/material/TextField';
-// import FormHelperText from '@mui/material/FormHelperText';
-// import FormControl from "@mui/material/FormControl";
-// import Radio from '@mui/material/Radio';
-// import RadioGroup from '@mui/material/RadioGroup';
-// import { FormControlLabel } from "@mui/material";
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import Container from '@mui/material/Container';
-import AppBar from './AppBar';
 import MapView from "./MapView";
 
 export default class HomePage extends Component{
     viewState = {
-        lat: 37,
-        lng: -12.4376,
-        zoom: 8,
+        lat: 50,
+        lng: 4.5,
+        zoom: 6,
         width: 500,
         height: 500
       };
     
 
     render(){
-        return <Container disableGutters={true} maxWidth='sx'>
-                <AppBar/>
-                <BRouter>
+        return <Container disableGutters={true} maxWidth='sx' sx={{height: '100vh'}}>
+                <BrowserRouter>
                     <Switch>
                         <Route exact path='/'>
-                            <div>
-                              <MapView viewState={this.viewState} vehicles={this.vehicles} />
-                            </div>
+                            <MapView viewState={this.viewState} vehicles={this.vehicles}/>
+			                
                         </Route>
                         {/* <Route path='/profile' component={Profile}></Route> */}
                     </Switch>
-                </BRouter>
+                </BrowserRouter>
             </Container>
-                
-
-
-            {/* <Grid container spacing={1}>
-                <Grid item xs={12} align="center">
-                    <Typography component='h4' variant='h4'>
-                        Home Page mfof
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} align="center">
-                    <FormControl component="fieldset">
-
-                    </FormControl>
-                </Grid>
-            </Grid>; */}
-        // return (
-            
-        // );
     }
 }

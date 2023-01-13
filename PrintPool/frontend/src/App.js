@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import HomePage from './components/HomePage';
-import './styles/App.css';
+import Header from './Header';
 
 class App extends Component {
-    constructor(props){
-        super(props)
-    }
-
     render(){
-        return <HomePage/>;
+        return <div height="100vh">
+            <Header/>
+            {/* <pre id="info"></pre> */}
+            <HomePage height="100%"/>
+        </div>;
     }
 }
 
