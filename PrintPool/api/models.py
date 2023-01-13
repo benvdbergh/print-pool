@@ -14,6 +14,13 @@ def generate_uniqe_id():
     return code
 
 # Create your models here.
+class Workshop(models.Model):
+    id = models.CharField(max_length=10, default=generate_uniqe_id ,primary_key=True, unique=True)
+    owner = models.CharField(max_length=10)
+    location = models.CharField(max_length=15)
+    date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
+
 class Tool(models.Model):
     id = models.CharField(max_length=10, default=generate_uniqe_id ,primary_key=True, unique=True)
     t_type = models.CharField(max_length=50)
@@ -21,5 +28,7 @@ class Tool(models.Model):
     model = models.CharField(max_length=30)
     owner = models.CharField(max_length=10)
     location = models.CharField(max_length=15)
+    workshop = models.ForeignKey(Workshop)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
+
