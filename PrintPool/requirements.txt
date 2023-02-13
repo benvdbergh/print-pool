@@ -5,6 +5,7 @@ cryptography==38.0.4
 Cython==0.29.32
 Django==4.1.4
 djangorestframework==3.14.0
+django-rest-swagger==2.2.0
 dl==0.1.0
 docutils==0.19
 HTMLParser==0.0.2
